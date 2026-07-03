@@ -1,0 +1,178 @@
+import type { Championship, Session } from '@/types'
+
+const fp = (start: string): Session => ({ type: 'fp1', label: 'Practice', start, durationMinutes: 45 })
+const sq = (start: string): Session => ({ type: 'sprint_quali', label: 'Sprint Qualifying', start, durationMinutes: 30 })
+const sprint = (start: string): Session => ({ type: 'sprint', label: 'Sprint', start, durationMinutes: 20 })
+const race = (start: string): Session => ({ type: 'race', label: 'Grand Prix', start, durationMinutes: 45 })
+
+export const MOTOGP_2026: Championship = {
+  id: 'motogp',
+  name: 'MotoGP',
+  shortName: 'MotoGP',
+  vehicleType: 'motorcycle',
+  category: 'moto',
+  color: '#CC0000',
+  textColor: '#FFFFFF',
+  season: 2026,
+  broadcasts: {
+    BR: [
+      { channel: 'ESPN', type: 'cable-tv' },
+      { channel: 'Band', type: 'free-tv', note: 'Selected rounds' },
+      { channel: 'MotoGP VideoPass', type: 'paid-streaming', url: 'https://www.motogp.com/en/VideoPass' },
+    ],
+    US: [
+      { channel: 'NBC', type: 'cable-tv', note: 'Selected rounds' },
+      { channel: 'Peacock', type: 'paid-streaming', url: 'https://www.peacocktv.com' },
+      { channel: 'MotoGP VideoPass', type: 'paid-streaming', url: 'https://www.motogp.com/en/VideoPass' },
+    ],
+    UK: [
+      { channel: 'TNT Sports', type: 'cable-tv' },
+      { channel: 'discovery+', type: 'paid-streaming', url: 'https://www.discoveryplus.com' },
+      { channel: 'MotoGP VideoPass', type: 'paid-streaming', url: 'https://www.motogp.com/en/VideoPass' },
+    ],
+    IT: [
+      { channel: 'Sky MotoGP', type: 'cable-tv' },
+      { channel: 'TV8', type: 'free-tv', note: 'Delayed' },
+      { channel: 'MotoGP VideoPass', type: 'paid-streaming', url: 'https://www.motogp.com/en/VideoPass' },
+    ],
+    GLOBAL: [
+      { channel: 'MotoGP VideoPass', type: 'paid-streaming', url: 'https://www.motogp.com/en/VideoPass' },
+      { channel: 'MotoGP (Highlights)', type: 'free-streaming', url: 'https://www.youtube.com/@MotoGP', isYoutube: true },
+    ],
+  },
+  events: [
+    {
+      id: 'mgp-2026-r01',
+      round: 1,
+      name: 'Thailand Grand Prix',
+      circuit: { name: 'Chang International Circuit', city: 'Buriram', country: 'Thailand', countryCode: 'TH', timezone: 'Asia/Bangkok' },
+      sessions: [fp('2026-02-27T05:00:00Z'), sq('2026-02-28T05:00:00Z'), sprint('2026-02-28T08:00:00Z'), race('2026-03-01T07:00:00Z')],
+    },
+    {
+      id: 'mgp-2026-r02',
+      round: 2,
+      name: 'Argentine Grand Prix',
+      circuit: { name: 'Autódromo Termas de Río Hondo', city: 'Santiago del Estero', country: 'Argentina', countryCode: 'AR', timezone: 'America/Argentina/Cordoba' },
+      sessions: [fp('2026-03-27T13:30:00Z'), sq('2026-03-28T14:00:00Z'), sprint('2026-03-28T17:00:00Z'), race('2026-03-29T17:00:00Z')],
+    },
+    {
+      id: 'mgp-2026-r03',
+      round: 3,
+      name: 'Americas Grand Prix',
+      circuit: { name: 'Circuit of the Americas', city: 'Austin', country: 'United States', countryCode: 'US', timezone: 'America/Chicago' },
+      sessions: [fp('2026-04-10T16:30:00Z'), sq('2026-04-11T17:00:00Z'), sprint('2026-04-11T20:00:00Z'), race('2026-04-12T19:00:00Z')],
+    },
+    {
+      id: 'mgp-2026-r04',
+      round: 4,
+      name: 'Spanish Grand Prix',
+      circuit: { name: 'Circuito de Jerez - Ángel Nieto', city: 'Jerez de la Frontera', country: 'Spain', countryCode: 'ES', timezone: 'Europe/Madrid' },
+      sessions: [fp('2026-04-24T09:30:00Z'), sq('2026-04-25T10:00:00Z'), sprint('2026-04-25T14:00:00Z'), race('2026-04-26T12:00:00Z')],
+    },
+    {
+      id: 'mgp-2026-r05',
+      round: 5,
+      name: 'French Grand Prix',
+      circuit: { name: 'Circuit Bugatti', city: 'Le Mans', country: 'France', countryCode: 'FR', timezone: 'Europe/Paris' },
+      sessions: [fp('2026-05-08T09:30:00Z'), sq('2026-05-09T10:00:00Z'), sprint('2026-05-09T14:00:00Z'), race('2026-05-10T12:00:00Z')],
+    },
+    {
+      id: 'mgp-2026-r06',
+      round: 6,
+      name: 'Italian Grand Prix',
+      circuit: { name: 'Autodromo Internazionale del Mugello', city: 'Scarperia', country: 'Italy', countryCode: 'IT', timezone: 'Europe/Rome' },
+      sessions: [fp('2026-05-29T09:30:00Z'), sq('2026-05-30T10:00:00Z'), sprint('2026-05-30T14:00:00Z'), race('2026-05-31T12:00:00Z')],
+    },
+    {
+      id: 'mgp-2026-r07',
+      round: 7,
+      name: 'Catalan Grand Prix',
+      circuit: { name: 'Circuit de Barcelona-Catalunya', city: 'Montmeló', country: 'Spain', countryCode: 'ES', timezone: 'Europe/Madrid' },
+      sessions: [fp('2026-06-26T09:30:00Z'), sq('2026-06-27T10:00:00Z'), sprint('2026-06-27T14:00:00Z'), race('2026-06-28T12:00:00Z')],
+    },
+    {
+      id: 'mgp-2026-r08',
+      round: 8,
+      name: 'German Grand Prix',
+      circuit: { name: 'Sachsenring', city: 'Hohenstein-Ernstthal', country: 'Germany', countryCode: 'DE', timezone: 'Europe/Berlin' },
+      sessions: [fp('2026-07-10T09:30:00Z'), sq('2026-07-11T10:00:00Z'), sprint('2026-07-11T14:00:00Z'), race('2026-07-12T12:00:00Z')],
+    },
+    {
+      id: 'mgp-2026-r09',
+      round: 9,
+      name: 'Dutch TT',
+      circuit: { name: 'TT Circuit Assen', city: 'Assen', country: 'Netherlands', countryCode: 'NL', timezone: 'Europe/Amsterdam' },
+      sessions: [fp('2026-07-24T09:30:00Z'), sq('2026-07-25T10:00:00Z'), sprint('2026-07-25T14:00:00Z'), race('2026-07-26T12:00:00Z')],
+    },
+    {
+      id: 'mgp-2026-r10',
+      round: 10,
+      name: 'Austrian Grand Prix',
+      circuit: { name: 'Red Bull Ring', city: 'Spielberg', country: 'Austria', countryCode: 'AT', timezone: 'Europe/Vienna' },
+      sessions: [fp('2026-08-07T09:30:00Z'), sq('2026-08-08T10:00:00Z'), sprint('2026-08-08T14:00:00Z'), race('2026-08-09T12:00:00Z')],
+    },
+    {
+      id: 'mgp-2026-r11',
+      round: 11,
+      name: 'British Grand Prix',
+      circuit: { name: 'Silverstone Circuit', city: 'Silverstone', country: 'Great Britain', countryCode: 'GB', timezone: 'Europe/London' },
+      sessions: [fp('2026-08-28T11:00:00Z'), sq('2026-08-29T11:00:00Z'), sprint('2026-08-29T15:00:00Z'), race('2026-08-30T13:00:00Z')],
+    },
+    {
+      id: 'mgp-2026-r12',
+      round: 12,
+      name: 'San Marino Grand Prix',
+      circuit: { name: 'Misano World Circuit Marco Simoncelli', city: 'Misano Adriatico', country: 'Italy', countryCode: 'IT', timezone: 'Europe/Rome' },
+      sessions: [fp('2026-09-04T09:30:00Z'), sq('2026-09-05T10:00:00Z'), sprint('2026-09-05T14:00:00Z'), race('2026-09-06T12:00:00Z')],
+    },
+    {
+      id: 'mgp-2026-r13',
+      round: 13,
+      name: 'Aragon Grand Prix',
+      circuit: { name: 'MotorLand Aragón', city: 'Alcañiz', country: 'Spain', countryCode: 'ES', timezone: 'Europe/Madrid' },
+      sessions: [fp('2026-09-18T09:30:00Z'), sq('2026-09-19T10:00:00Z'), sprint('2026-09-19T14:00:00Z'), race('2026-09-20T12:00:00Z')],
+    },
+    {
+      id: 'mgp-2026-r14',
+      round: 14,
+      name: 'Japanese Grand Prix',
+      circuit: { name: 'Twin Ring Motegi', city: 'Motegi', country: 'Japan', countryCode: 'JP', timezone: 'Asia/Tokyo' },
+      sessions: [fp('2026-10-02T02:00:00Z'), sq('2026-10-03T02:00:00Z'), sprint('2026-10-03T05:00:00Z'), race('2026-10-04T05:00:00Z')],
+    },
+    {
+      id: 'mgp-2026-r15',
+      round: 15,
+      name: 'Indonesian Grand Prix',
+      circuit: { name: 'Pertamina Mandalika Circuit', city: 'Lombok', country: 'Indonesia', countryCode: 'ID', timezone: 'Asia/Makassar' },
+      sessions: [fp('2026-10-16T03:00:00Z'), sq('2026-10-17T04:00:00Z'), sprint('2026-10-17T07:00:00Z'), race('2026-10-18T06:00:00Z')],
+    },
+    {
+      id: 'mgp-2026-r16',
+      round: 16,
+      name: 'Australian Grand Prix',
+      circuit: { name: 'Phillip Island Grand Prix Circuit', city: 'Phillip Island', country: 'Australia', countryCode: 'AU', timezone: 'Australia/Melbourne' },
+      sessions: [fp('2026-10-23T01:00:00Z'), sq('2026-10-24T02:00:00Z'), sprint('2026-10-24T05:00:00Z'), race('2026-10-25T03:00:00Z')],
+    },
+    {
+      id: 'mgp-2026-r17',
+      round: 17,
+      name: 'Malaysian Grand Prix',
+      circuit: { name: 'Sepang International Circuit', city: 'Sepang', country: 'Malaysia', countryCode: 'MY', timezone: 'Asia/Kuala_Lumpur' },
+      sessions: [fp('2026-10-30T04:00:00Z'), sq('2026-10-31T04:30:00Z'), sprint('2026-10-31T08:00:00Z'), race('2026-11-01T06:00:00Z')],
+    },
+    {
+      id: 'mgp-2026-r18',
+      round: 18,
+      name: 'Portuguese Grand Prix',
+      circuit: { name: 'Algarve International Circuit', city: 'Portimão', country: 'Portugal', countryCode: 'PT', timezone: 'Europe/Lisbon' },
+      sessions: [fp('2026-11-13T09:30:00Z'), sq('2026-11-14T10:00:00Z'), sprint('2026-11-14T14:00:00Z'), race('2026-11-15T13:00:00Z')],
+    },
+    {
+      id: 'mgp-2026-r19',
+      round: 19,
+      name: 'Valencia Grand Prix',
+      circuit: { name: 'Circuit Ricardo Tormo', city: 'Valencia', country: 'Spain', countryCode: 'ES', timezone: 'Europe/Madrid' },
+      sessions: [fp('2026-11-20T09:30:00Z'), sq('2026-11-21T10:00:00Z'), sprint('2026-11-21T14:00:00Z'), race('2026-11-22T12:00:00Z')],
+    },
+  ],
+}

@@ -1,0 +1,175 @@
+import type { Championship } from '@/types'
+
+export const F2_2026: Championship = {
+  id: 'f2',
+  name: 'Formula 2',
+  shortName: 'F2',
+  vehicleType: 'car',
+  category: 'formula',
+  color: '#0032A0',
+  textColor: '#FFFFFF',
+  season: 2026,
+  broadcasts: {
+    BR: [
+      { channel: 'F1 TV', type: 'paid-streaming', url: 'https://f1tv.formula1.com' },
+      { channel: 'Band', type: 'free-tv', note: 'Selected rounds' },
+    ],
+    US: [
+      { channel: 'F1 TV', type: 'paid-streaming', url: 'https://f1tv.formula1.com' },
+      { channel: 'ESPN', type: 'cable-tv' },
+    ],
+    UK: [
+      { channel: 'Sky Sports F1', type: 'cable-tv' },
+      { channel: 'F1 TV', type: 'paid-streaming', url: 'https://f1tv.formula1.com' },
+    ],
+    GLOBAL: [
+      { channel: 'F1 TV', type: 'paid-streaming', url: 'https://f1tv.formula1.com' },
+    ],
+  },
+  events: [
+    {
+      id: 'f2-2026-r01',
+      round: 1,
+      name: 'Formula 2 — Bahrain',
+      circuit: { name: 'Bahrain International Circuit', city: 'Sakhir', country: 'Bahrain', countryCode: 'BH', timezone: 'Asia/Bahrain' },
+      sessions: [
+        { type: 'fp1', label: 'Practice', start: '2026-03-06T08:00:00Z', durationMinutes: 45 },
+        { type: 'quali', label: 'Qualifying', start: '2026-03-06T12:00:00Z', durationMinutes: 30 },
+        { type: 'sprint', label: 'Sprint Race', start: '2026-03-07T08:00:00Z', durationMinutes: 45 },
+        { type: 'race', label: 'Feature Race', start: '2026-03-08T08:00:00Z', durationMinutes: 45 },
+      ],
+    },
+    {
+      id: 'f2-2026-r02',
+      round: 2,
+      name: 'Formula 2 — Saudi Arabia',
+      circuit: { name: 'Jeddah Corniche Circuit', city: 'Jeddah', country: 'Saudi Arabia', countryCode: 'SA', timezone: 'Asia/Riyadh' },
+      sessions: [
+        { type: 'fp1', label: 'Practice', start: '2026-03-20T08:00:00Z', durationMinutes: 45 },
+        { type: 'quali', label: 'Qualifying', start: '2026-03-20T12:00:00Z', durationMinutes: 30 },
+        { type: 'sprint', label: 'Sprint Race', start: '2026-03-21T08:00:00Z', durationMinutes: 45 },
+        { type: 'race', label: 'Feature Race', start: '2026-03-22T08:00:00Z', durationMinutes: 45 },
+      ],
+    },
+    {
+      id: 'f2-2026-r03',
+      round: 3,
+      name: 'Formula 2 — Monaco',
+      circuit: { name: 'Circuit de Monaco', city: 'Monte Carlo', country: 'Monaco', countryCode: 'MC', timezone: 'Europe/Monaco' },
+      sessions: [
+        { type: 'fp1', label: 'Practice', start: '2026-05-22T09:00:00Z', durationMinutes: 45 },
+        { type: 'quali', label: 'Qualifying', start: '2026-05-22T13:00:00Z', durationMinutes: 30 },
+        { type: 'sprint', label: 'Sprint Race', start: '2026-05-23T09:00:00Z', durationMinutes: 45 },
+        { type: 'race', label: 'Feature Race', start: '2026-05-24T09:00:00Z', durationMinutes: 45 },
+      ],
+    },
+    {
+      id: 'f2-2026-r04',
+      round: 4,
+      name: 'Formula 2 — Spain',
+      circuit: { name: 'Circuit de Barcelona-Catalunya', city: 'Montmeló', country: 'Spain', countryCode: 'ES', timezone: 'Europe/Madrid' },
+      sessions: [
+        { type: 'fp1', label: 'Practice', start: '2026-06-05T09:00:00Z', durationMinutes: 45 },
+        { type: 'quali', label: 'Qualifying', start: '2026-06-05T13:00:00Z', durationMinutes: 30 },
+        { type: 'sprint', label: 'Sprint Race', start: '2026-06-06T09:00:00Z', durationMinutes: 45 },
+        { type: 'race', label: 'Feature Race', start: '2026-06-07T09:00:00Z', durationMinutes: 45 },
+      ],
+    },
+    {
+      id: 'f2-2026-r05',
+      round: 5,
+      name: 'Formula 2 — Great Britain',
+      circuit: { name: 'Silverstone Circuit', city: 'Silverstone', country: 'Great Britain', countryCode: 'GB', timezone: 'Europe/London' },
+      sessions: [
+        { type: 'fp1', label: 'Practice', start: '2026-07-17T10:00:00Z', durationMinutes: 45 },
+        { type: 'quali', label: 'Qualifying', start: '2026-07-17T14:00:00Z', durationMinutes: 30 },
+        { type: 'sprint', label: 'Sprint Race', start: '2026-07-18T10:00:00Z', durationMinutes: 45 },
+        { type: 'race', label: 'Feature Race', start: '2026-07-19T10:00:00Z', durationMinutes: 45 },
+      ],
+    },
+    {
+      id: 'f2-2026-r06',
+      round: 6,
+      name: 'Formula 2 — Hungary',
+      circuit: { name: 'Hungaroring', city: 'Budapest', country: 'Hungary', countryCode: 'HU', timezone: 'Europe/Budapest' },
+      sessions: [
+        { type: 'fp1', label: 'Practice', start: '2026-07-31T09:00:00Z', durationMinutes: 45 },
+        { type: 'quali', label: 'Qualifying', start: '2026-07-31T13:00:00Z', durationMinutes: 30 },
+        { type: 'sprint', label: 'Sprint Race', start: '2026-08-01T09:00:00Z', durationMinutes: 45 },
+        { type: 'race', label: 'Feature Race', start: '2026-08-02T09:00:00Z', durationMinutes: 45 },
+      ],
+    },
+    {
+      id: 'f2-2026-r07',
+      round: 7,
+      name: 'Formula 2 — Belgium',
+      circuit: { name: 'Circuit de Spa-Francorchamps', city: 'Stavelot', country: 'Belgium', countryCode: 'BE', timezone: 'Europe/Brussels' },
+      sessions: [
+        { type: 'fp1', label: 'Practice', start: '2026-08-28T09:00:00Z', durationMinutes: 45 },
+        { type: 'quali', label: 'Qualifying', start: '2026-08-28T13:00:00Z', durationMinutes: 30 },
+        { type: 'sprint', label: 'Sprint Race', start: '2026-08-29T09:00:00Z', durationMinutes: 45 },
+        { type: 'race', label: 'Feature Race', start: '2026-08-30T09:00:00Z', durationMinutes: 45 },
+      ],
+    },
+    {
+      id: 'f2-2026-r08',
+      round: 8,
+      name: 'Formula 2 — Netherlands',
+      circuit: { name: 'Circuit Zandvoort', city: 'Zandvoort', country: 'Netherlands', countryCode: 'NL', timezone: 'Europe/Amsterdam' },
+      sessions: [
+        { type: 'fp1', label: 'Practice', start: '2026-09-04T09:00:00Z', durationMinutes: 45 },
+        { type: 'quali', label: 'Qualifying', start: '2026-09-04T13:00:00Z', durationMinutes: 30 },
+        { type: 'sprint', label: 'Sprint Race', start: '2026-09-05T09:00:00Z', durationMinutes: 45 },
+        { type: 'race', label: 'Feature Race', start: '2026-09-06T09:00:00Z', durationMinutes: 45 },
+      ],
+    },
+    {
+      id: 'f2-2026-r09',
+      round: 9,
+      name: 'Formula 2 — Italy',
+      circuit: { name: 'Autodromo Nazionale Monza', city: 'Monza', country: 'Italy', countryCode: 'IT', timezone: 'Europe/Rome' },
+      sessions: [
+        { type: 'fp1', label: 'Practice', start: '2026-09-11T09:00:00Z', durationMinutes: 45 },
+        { type: 'quali', label: 'Qualifying', start: '2026-09-11T13:00:00Z', durationMinutes: 30 },
+        { type: 'sprint', label: 'Sprint Race', start: '2026-09-12T09:00:00Z', durationMinutes: 45 },
+        { type: 'race', label: 'Feature Race', start: '2026-09-13T09:00:00Z', durationMinutes: 45 },
+      ],
+    },
+    {
+      id: 'f2-2026-r10',
+      round: 10,
+      name: 'Formula 2 — Azerbaijan',
+      circuit: { name: 'Baku City Circuit', city: 'Baku', country: 'Azerbaijan', countryCode: 'AZ', timezone: 'Asia/Baku' },
+      sessions: [
+        { type: 'fp1', label: 'Practice', start: '2026-09-25T07:00:00Z', durationMinutes: 45 },
+        { type: 'quali', label: 'Qualifying', start: '2026-09-25T11:00:00Z', durationMinutes: 30 },
+        { type: 'sprint', label: 'Sprint Race', start: '2026-09-26T07:00:00Z', durationMinutes: 45 },
+        { type: 'race', label: 'Feature Race', start: '2026-09-27T07:00:00Z', durationMinutes: 45 },
+      ],
+    },
+    {
+      id: 'f2-2026-r11',
+      round: 11,
+      name: 'Formula 2 — Singapore',
+      circuit: { name: 'Marina Bay Street Circuit', city: 'Singapore', country: 'Singapore', countryCode: 'SG', timezone: 'Asia/Singapore' },
+      sessions: [
+        { type: 'fp1', label: 'Practice', start: '2026-10-02T03:00:00Z', durationMinutes: 45 },
+        { type: 'quali', label: 'Qualifying', start: '2026-10-02T07:00:00Z', durationMinutes: 30 },
+        { type: 'sprint', label: 'Sprint Race', start: '2026-10-03T03:00:00Z', durationMinutes: 45 },
+        { type: 'race', label: 'Feature Race', start: '2026-10-04T03:00:00Z', durationMinutes: 45 },
+      ],
+    },
+    {
+      id: 'f2-2026-r12',
+      round: 12,
+      name: 'Formula 2 — Abu Dhabi',
+      circuit: { name: 'Yas Marina Circuit', city: 'Abu Dhabi', country: 'United Arab Emirates', countryCode: 'AE', timezone: 'Asia/Dubai' },
+      sessions: [
+        { type: 'fp1', label: 'Practice', start: '2026-12-04T07:00:00Z', durationMinutes: 45 },
+        { type: 'quali', label: 'Qualifying', start: '2026-12-04T11:00:00Z', durationMinutes: 30 },
+        { type: 'sprint', label: 'Sprint Race', start: '2026-12-05T07:00:00Z', durationMinutes: 45 },
+        { type: 'race', label: 'Feature Race', start: '2026-12-06T07:00:00Z', durationMinutes: 45 },
+      ],
+    },
+  ],
+}

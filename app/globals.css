@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-timing: #f59e0b;
+    --color-timing-dim: rgba(245, 158, 11, 0.15);
+    --color-live: #ef4444;
+    --color-live-glow: rgba(239, 68, 68, 0.08);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-gray-950 text-gray-100 antialiased;
+    font-family: var(--font-body);
+    background-image:
+      /* Subtle noise texture for analog broadcast feel */
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"),
+      /* Timing screen grid */
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 256px 256px, 48px 48px, 48px 48px;
+    background-position: 0 0, 0 0, 0 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-1.5 h-1.5;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-900;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-700 rounded-full;
+  }
+}
+
+@layer utilities {
+  .live-pulse {
+    animation: live-pulse 2s ease-in-out infinite;
+  }
+  @keyframes live-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-slide-in {
+    animation: slide-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes slide-in {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-count-pulse {
+    animation: count-pulse 1s step-end infinite;
+  }
+  @keyframes count-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .timing-glow {
+    box-shadow: 0 0 30px var(--color-timing-dim), 0 0 60px var(--color-timing-dim);
+  }
+
+  .live-glow {
+    box-shadow: 0 0 20px var(--color-live-glow);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .live-pulse,
+    .motion-safe\:animate-pulse,
+    .animate-fade-in,
+    .animate-slide-in,
+    .animate-count-pulse {
+      animation: none !important;
+    }
+  }
+}
