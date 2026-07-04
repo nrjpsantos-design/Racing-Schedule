@@ -38,6 +38,18 @@ export const F1_ACADEMY_2026: Championship = {
     {
       id: 'f1a-2026-r02',
       round: 2,
+      name: 'F1 Academy — Saudi Arabia',
+      circuit: { name: 'Jeddah Corniche Circuit', city: 'Jeddah', country: 'Saudi Arabia', countryCode: 'SA', timezone: 'Asia/Riyadh' },
+      sessions: [
+        fp1('2026-04-17T07:00:00Z'),         // Fri 10:00 AST (estimated)
+        quali1('2026-04-17T12:00:00Z'),       // Fri 15:00 AST (estimated)
+        race('2026-04-18T11:00:00Z', 'Race 1'), // Sat 14:00 AST (estimated)
+        race('2026-04-19T07:00:00Z', 'Race 2'), // Sun 10:00 AST (estimated)
+      ],
+    },
+    {
+      id: 'f1a-2026-r03',
+      round: 3,
       name: 'F1 Academy — Canada',
       circuit: { name: 'Circuit Gilles Villeneuve', city: 'Montréal', country: 'Canada', countryCode: 'CA', timezone: 'America/Toronto' },
       sessions: [
@@ -49,20 +61,20 @@ export const F1_ACADEMY_2026: Championship = {
       ],
     },
     {
-      id: 'f1a-2026-r03',
-      round: 3,
+      id: 'f1a-2026-r04',
+      round: 4,
       name: 'F1 Academy — Great Britain',
       circuit: { name: 'Silverstone Circuit', city: 'Silverstone', country: 'Great Britain', countryCode: 'GB', timezone: 'Europe/London' },
       sessions: [
-        fp1('2026-07-03T10:00:00Z'),         // Fri 11:00 BST
-        quali1('2026-07-03T15:00:00Z'),       // Fri 16:00 BST
-        race('2026-07-04T14:00:00Z', 'Race 1'), // Sat 15:00 BST
-        race('2026-07-05T09:00:00Z', 'Race 2'), // Sun 10:00 BST
+        fp1('2026-07-03T06:45:00Z'),         // Fri 07:45 BST ✓ official
+        quali1('2026-07-03T17:00:00Z'),       // Fri 18:00 BST ✓ official
+        race('2026-07-04T17:05:00Z', 'Reverse Race'), // Sat 18:05 BST ✓ official
+        race('2026-07-05T09:00:00Z', 'Feature Race'), // Sun 10:00 BST ✓ official
       ],
     },
     {
-      id: 'f1a-2026-r04',
-      round: 4,
+      id: 'f1a-2026-r05',
+      round: 5,
       name: 'F1 Academy — Netherlands',
       circuit: { name: 'Circuit Zandvoort', city: 'Zandvoort', country: 'Netherlands', countryCode: 'NL', timezone: 'Europe/Amsterdam' },
       sessions: [
@@ -73,8 +85,8 @@ export const F1_ACADEMY_2026: Championship = {
       ],
     },
     {
-      id: 'f1a-2026-r05',
-      round: 5,
+      id: 'f1a-2026-r06',
+      round: 6,
       name: 'F1 Academy — USA',
       circuit: { name: 'Circuit of the Americas', city: 'Austin', country: 'United States', countryCode: 'US', timezone: 'America/Chicago' },
       sessions: [
@@ -86,8 +98,8 @@ export const F1_ACADEMY_2026: Championship = {
       ],
     },
     {
-      id: 'f1a-2026-r06',
-      round: 6,
+      id: 'f1a-2026-r07',
+      round: 7,
       name: 'F1 Academy — Las Vegas',
       circuit: { name: 'Las Vegas Street Circuit', city: 'Las Vegas', country: 'United States', countryCode: 'US', timezone: 'America/Los_Angeles' },
       sessions: [

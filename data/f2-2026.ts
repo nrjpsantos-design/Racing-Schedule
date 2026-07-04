@@ -38,10 +38,10 @@ export const F2_2026: Championship = {
       name: 'Formula 2 — Australia',
       circuit: { name: 'Albert Park Circuit', city: 'Melbourne', country: 'Australia', countryCode: 'AU', timezone: 'Australia/Melbourne' },
       sessions: [
-        practice('2026-03-05T23:00:00Z'),     // Fri 10:00 AEDT
-        quali('2026-03-06T04:00:00Z'),         // Fri 15:00 AEDT
-        sprint('2026-03-07T03:00:00Z'),        // Sat 14:00 AEDT
-        feature('2026-03-07T22:00:00Z'),       // Sun 09:00 AEDT
+        practice('2026-03-05T23:00:00Z'),     // Fri 10:00 AEDT ✓ verified
+        quali('2026-03-06T03:55:00Z'),         // Fri 14:55 AEDT ✓ verified
+        sprint('2026-03-07T03:30:00Z'),        // Sat 14:30 AEDT ✓ verified
+        feature('2026-03-08T00:25:00Z'),       // Sun 11:25 AEDT ✓ verified
       ],
     },
     {
@@ -74,10 +74,10 @@ export const F2_2026: Championship = {
       name: 'Formula 2 — Monaco',
       circuit: { name: 'Circuit de Monaco', city: 'Monte Carlo', country: 'Monaco', countryCode: 'MC', timezone: 'Europe/Monaco' },
       sessions: [
-        practice('2026-06-05T08:00:00Z'),     // Fri 10:00 CEST
-        quali('2026-06-05T13:00:00Z'),         // Fri 15:00 CEST
-        sprint('2026-06-06T12:00:00Z'),        // Sat 14:00 CEST
-        feature('2026-06-07T07:00:00Z'),       // Sun 09:00 CEST
+        practice('2026-06-05T09:05:00Z'),     // Fri 11:05 CEST (estimated)
+        quali('2026-06-05T13:55:00Z'),         // Fri 15:55 CEST (estimated)
+        sprint('2026-06-06T12:15:00Z'),        // Sat 14:15 CEST (estimated)
+        feature('2026-06-07T08:10:00Z'),       // Sun 10:10 CEST (estimated)
       ],
     },
     {
@@ -86,10 +86,10 @@ export const F2_2026: Championship = {
       name: 'Formula 2 — Spain',
       circuit: { name: 'Circuit de Barcelona-Catalunya', city: 'Montmeló', country: 'Spain', countryCode: 'ES', timezone: 'Europe/Madrid' },
       sessions: [
-        practice('2026-06-12T08:00:00Z'),     // Fri 10:00 CEST
-        quali('2026-06-12T13:00:00Z'),         // Fri 15:00 CEST
-        sprint('2026-06-13T12:00:00Z'),        // Sat 14:00 CEST
-        feature('2026-06-14T07:00:00Z'),       // Sun 09:00 CEST
+        practice('2026-06-12T09:05:00Z'),     // Fri 11:05 CEST (estimated)
+        quali('2026-06-12T13:55:00Z'),         // Fri 15:55 CEST (estimated)
+        sprint('2026-06-13T12:15:00Z'),        // Sat 14:15 CEST (estimated)
+        feature('2026-06-14T08:10:00Z'),       // Sun 10:10 CEST (estimated)
       ],
     },
     {
@@ -98,10 +98,10 @@ export const F2_2026: Championship = {
       name: 'Formula 2 — Austria',
       circuit: { name: 'Red Bull Ring', city: 'Spielberg', country: 'Austria', countryCode: 'AT', timezone: 'Europe/Vienna' },
       sessions: [
-        practice('2026-06-26T08:00:00Z'),     // Fri 10:00 CEST
-        quali('2026-06-26T13:00:00Z'),         // Fri 15:00 CEST
-        sprint('2026-06-27T12:00:00Z'),        // Sat 14:00 CEST
-        feature('2026-06-28T07:00:00Z'),       // Sun 09:00 CEST
+        practice('2026-06-26T09:05:00Z'),     // Fri 11:05 CEST ✓ official
+        quali('2026-06-26T13:55:00Z'),         // Fri 15:55 CEST ✓ official
+        sprint('2026-06-27T12:15:00Z'),        // Sat 14:15 CEST ✓ official
+        feature('2026-06-28T08:10:00Z'),       // Sun 10:10 CEST ✓ official
       ],
     },
     {
@@ -110,10 +110,10 @@ export const F2_2026: Championship = {
       name: 'Formula 2 — Great Britain',
       circuit: { name: 'Silverstone Circuit', city: 'Silverstone', country: 'Great Britain', countryCode: 'GB', timezone: 'Europe/London' },
       sessions: [
-        practice('2026-07-03T09:00:00Z'),     // Fri 10:00 BST
-        quali('2026-07-03T14:00:00Z'),         // Fri 15:00 BST
-        sprint('2026-07-04T13:00:00Z'),        // Sat 14:00 BST
-        feature('2026-07-05T08:00:00Z'),       // Sun 09:00 BST
+        practice('2026-07-03T09:00:00Z'),     // Fri 10:00 BST ✓ official
+        quali('2026-07-03T13:55:00Z'),         // Fri 14:55 BST ✓ official
+        sprint('2026-07-04T12:45:00Z'),        // Sat 13:45 BST ✓ official
+        feature('2026-07-05T10:15:00Z'),       // Sun 11:15 BST ✓ official
       ],
     },
     {
@@ -122,10 +122,10 @@ export const F2_2026: Championship = {
       name: 'Formula 2 — Belgium',
       circuit: { name: 'Circuit de Spa-Francorchamps', city: 'Stavelot', country: 'Belgium', countryCode: 'BE', timezone: 'Europe/Brussels' },
       sessions: [
-        practice('2026-07-17T08:00:00Z'),     // Fri 10:00 CEST
-        quali('2026-07-17T13:00:00Z'),         // Fri 15:00 CEST
-        sprint('2026-07-18T12:00:00Z'),        // Sat 14:00 CEST
-        feature('2026-07-19T07:00:00Z'),       // Sun 09:00 CEST
+        practice('2026-07-17T09:05:00Z'),     // Fri 11:05 CEST ✓ official
+        quali('2026-07-17T13:55:00Z'),         // Fri 15:55 CEST ✓ official
+        sprint('2026-07-18T12:15:00Z'),        // Sat 14:15 CEST ✓ official
+        feature('2026-07-19T08:00:00Z'),       // Sun 10:00 CEST ✓ official
       ],
     },
     {
@@ -134,10 +134,10 @@ export const F2_2026: Championship = {
       name: 'Formula 2 — Hungary',
       circuit: { name: 'Hungaroring', city: 'Budapest', country: 'Hungary', countryCode: 'HU', timezone: 'Europe/Budapest' },
       sessions: [
-        practice('2026-07-24T08:00:00Z'),     // Fri 10:00 CEST
-        quali('2026-07-24T13:00:00Z'),         // Fri 15:00 CEST
-        sprint('2026-07-25T12:00:00Z'),        // Sat 14:00 CEST
-        feature('2026-07-26T07:00:00Z'),       // Sun 09:00 CEST
+        practice('2026-07-24T09:05:00Z'),     // Fri 11:05 CEST ✓ official
+        quali('2026-07-24T14:05:00Z'),         // Fri 16:05 CEST ✓ official
+        sprint('2026-07-25T12:15:00Z'),        // Sat 14:15 CEST ✓ official
+        feature('2026-07-26T09:25:00Z'),       // Sun 11:25 CEST ✓ official
       ],
     },
     {
@@ -146,10 +146,10 @@ export const F2_2026: Championship = {
       name: 'Formula 2 — Italy',
       circuit: { name: 'Autodromo Nazionale Monza', city: 'Monza', country: 'Italy', countryCode: 'IT', timezone: 'Europe/Rome' },
       sessions: [
-        practice('2026-09-04T08:00:00Z'),     // Fri 10:00 CEST
-        quali('2026-09-04T13:00:00Z'),         // Fri 15:00 CEST
-        sprint('2026-09-05T12:00:00Z'),        // Sat 14:00 CEST
-        feature('2026-09-06T07:00:00Z'),       // Sun 09:00 CEST
+        practice('2026-09-04T09:05:00Z'),     // Fri 11:05 CEST (estimated)
+        quali('2026-09-04T13:55:00Z'),         // Fri 15:55 CEST (estimated)
+        sprint('2026-09-05T12:15:00Z'),        // Sat 14:15 CEST (estimated)
+        feature('2026-09-06T08:10:00Z'),       // Sun 10:10 CEST (estimated)
       ],
     },
     {
@@ -158,10 +158,10 @@ export const F2_2026: Championship = {
       name: 'Formula 2 — Spain/Madrid',
       circuit: { name: 'Madring', city: 'Madrid', country: 'Spain', countryCode: 'ES', timezone: 'Europe/Madrid' },
       sessions: [
-        practice('2026-09-11T08:00:00Z'),     // Fri 10:00 CEST
-        quali('2026-09-11T13:00:00Z'),         // Fri 15:00 CEST
-        sprint('2026-09-12T12:00:00Z'),        // Sat 14:00 CEST
-        feature('2026-09-13T07:00:00Z'),       // Sun 09:00 CEST
+        practice('2026-09-11T09:05:00Z'),     // Fri 11:05 CEST (estimated)
+        quali('2026-09-11T13:55:00Z'),         // Fri 15:55 CEST (estimated)
+        sprint('2026-09-12T12:15:00Z'),        // Sat 14:15 CEST (estimated)
+        feature('2026-09-13T08:10:00Z'),       // Sun 10:10 CEST (estimated)
       ],
     },
     {
