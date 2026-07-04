@@ -29,10 +29,10 @@ export const F1_ACADEMY_2026: Championship = {
       name: 'F1 Academy — China',
       circuit: { name: 'Shanghai International Circuit', city: 'Shanghai', country: 'China', countryCode: 'CN', timezone: 'Asia/Shanghai' },
       sessions: [
-        fp1('2026-03-13T02:00:00Z'),         // Fri 10:00 CST
-        quali1('2026-03-13T07:00:00Z'),       // Fri 15:00 CST
-        race('2026-03-14T06:00:00Z', 'Race 1'), // Sat 14:00 CST
-        race('2026-03-15T01:00:00Z', 'Race 2'), // Sun 09:00 CST
+        fp1('2026-03-13T03:00:00Z'),         // Fri 11:00 CST
+        quali1('2026-03-13T08:00:00Z'),       // Fri 16:00 CST
+        race('2026-03-14T07:00:00Z', 'Race 1'), // Sat 15:00 CST
+        race('2026-03-15T02:00:00Z', 'Race 2'), // Sun 10:00 CST
       ],
     },
     {
@@ -41,11 +41,11 @@ export const F1_ACADEMY_2026: Championship = {
       name: 'F1 Academy — Canada',
       circuit: { name: 'Circuit Gilles Villeneuve', city: 'Montréal', country: 'Canada', countryCode: 'CA', timezone: 'America/Toronto' },
       sessions: [
-        fp1('2026-05-22T14:00:00Z'),         // Fri 10:00 EDT
-        quali1('2026-05-22T19:00:00Z'),       // Fri 15:00 EDT
-        race('2026-05-23T14:00:00Z', 'Opening Race'), // Sat 10:00 EDT
-        race('2026-05-23T18:00:00Z', 'Race 1'),         // Sat 14:00 EDT
-        race('2026-05-24T13:00:00Z', 'Race 2'),         // Sun 09:00 EDT
+        fp1('2026-05-22T15:00:00Z'),         // Fri 11:00 EDT
+        quali1('2026-05-22T20:00:00Z'),       // Fri 16:00 EDT
+        race('2026-05-23T15:00:00Z', 'Opening Race'), // Sat 11:00 EDT
+        race('2026-05-23T19:00:00Z', 'Race 1'),         // Sat 15:00 EDT
+        race('2026-05-24T14:00:00Z', 'Race 2'),         // Sun 10:00 EDT
       ],
     },
     {
@@ -54,10 +54,10 @@ export const F1_ACADEMY_2026: Championship = {
       name: 'F1 Academy — Great Britain',
       circuit: { name: 'Silverstone Circuit', city: 'Silverstone', country: 'Great Britain', countryCode: 'GB', timezone: 'Europe/London' },
       sessions: [
-        fp1('2026-07-03T09:00:00Z'),         // Fri 10:00 BST
-        quali1('2026-07-03T14:00:00Z'),       // Fri 15:00 BST
-        race('2026-07-04T13:00:00Z', 'Race 1'), // Sat 14:00 BST
-        race('2026-07-05T08:00:00Z', 'Race 2'), // Sun 09:00 BST
+        fp1('2026-07-03T10:00:00Z'),         // Fri 11:00 BST
+        quali1('2026-07-03T15:00:00Z'),       // Fri 16:00 BST
+        race('2026-07-04T14:00:00Z', 'Race 1'), // Sat 15:00 BST
+        race('2026-07-05T09:00:00Z', 'Race 2'), // Sun 10:00 BST
       ],
     },
     {
@@ -66,10 +66,10 @@ export const F1_ACADEMY_2026: Championship = {
       name: 'F1 Academy — Netherlands',
       circuit: { name: 'Circuit Zandvoort', city: 'Zandvoort', country: 'Netherlands', countryCode: 'NL', timezone: 'Europe/Amsterdam' },
       sessions: [
-        fp1('2026-08-21T08:00:00Z'),         // Fri 10:00 CEST
-        quali1('2026-08-21T13:00:00Z'),       // Fri 15:00 CEST
-        race('2026-08-22T12:00:00Z', 'Race 1'), // Sat 14:00 CEST
-        race('2026-08-23T07:00:00Z', 'Race 2'), // Sun 09:00 CEST
+        fp1('2026-08-21T09:00:00Z'),         // Fri 11:00 CEST
+        quali1('2026-08-21T14:00:00Z'),       // Fri 16:00 CEST
+        race('2026-08-22T13:00:00Z', 'Race 1'), // Sat 15:00 CEST
+        race('2026-08-23T08:00:00Z', 'Race 2'), // Sun 10:00 CEST
       ],
     },
     {
@@ -78,11 +78,11 @@ export const F1_ACADEMY_2026: Championship = {
       name: 'F1 Academy — USA',
       circuit: { name: 'Circuit of the Americas', city: 'Austin', country: 'United States', countryCode: 'US', timezone: 'America/Chicago' },
       sessions: [
-        fp1('2026-10-23T15:00:00Z'),         // Fri 10:00 CDT
-        quali1('2026-10-23T20:00:00Z'),       // Fri 15:00 CDT
-        race('2026-10-24T15:00:00Z', 'Opening Race'), // Sat 10:00 CDT
-        race('2026-10-24T19:00:00Z', 'Race 1'),         // Sat 14:00 CDT
-        race('2026-10-25T14:00:00Z', 'Race 2'),         // Sun 09:00 CDT
+        fp1('2026-10-23T16:00:00Z'),         // Fri 11:00 CDT
+        quali1('2026-10-23T21:00:00Z'),       // Fri 16:00 CDT
+        race('2026-10-24T16:00:00Z', 'Opening Race'), // Sat 11:00 CDT
+        race('2026-10-24T20:00:00Z', 'Race 1'),         // Sat 15:00 CDT
+        race('2026-10-25T15:00:00Z', 'Race 2'),         // Sun 10:00 CDT
       ],
     },
     {
@@ -91,10 +91,10 @@ export const F1_ACADEMY_2026: Championship = {
       name: 'F1 Academy — Las Vegas',
       circuit: { name: 'Las Vegas Street Circuit', city: 'Las Vegas', country: 'United States', countryCode: 'US', timezone: 'America/Los_Angeles' },
       sessions: [
-        fp1('2026-11-19T18:00:00Z'),         // Thu 10:00 PST
-        quali1('2026-11-19T23:00:00Z'),       // Thu 15:00 PST
-        race('2026-11-20T22:00:00Z', 'Race 1'), // Fri 14:00 PST
-        race('2026-11-21T17:00:00Z', 'Race 2'), // Sat 09:00 PST
+        fp1('2026-11-19T19:00:00Z'),         // Thu 11:00 PST
+        quali1('2026-11-20T00:00:00Z'),       // Thu 16:00 PST
+        race('2026-11-20T23:00:00Z', 'Race 1'), // Fri 15:00 PST
+        race('2026-11-21T18:00:00Z', 'Race 2'), // Sat 10:00 PST
       ],
     },
   ],

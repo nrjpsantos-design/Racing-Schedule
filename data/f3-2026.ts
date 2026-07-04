@@ -38,10 +38,10 @@ export const F3_2026: Championship = {
       name: 'Formula 3 — Australia',
       circuit: { name: 'Albert Park Circuit', city: 'Melbourne', country: 'Australia', countryCode: 'AU', timezone: 'Australia/Melbourne' },
       sessions: [
-        practice('2026-03-05T23:00:00Z'),     // Fri 10:00 AEDT
-        quali('2026-03-06T04:00:00Z'),         // Fri 15:00 AEDT
-        sprint('2026-03-07T03:00:00Z'),        // Sat 14:00 AEDT
-        feature('2026-03-07T22:00:00Z'),       // Sun 09:00 AEDT
+        practice('2026-03-05T22:00:00Z'),     // Fri 09:00 AEDT
+        quali('2026-03-06T03:00:00Z'),         // Fri 14:00 AEDT
+        sprint('2026-03-07T02:00:00Z'),        // Sat 13:00 AEDT
+        feature('2026-03-07T21:00:00Z'),       // Sun 08:00 AEDT
       ],
     },
     {
@@ -50,10 +50,10 @@ export const F3_2026: Championship = {
       name: 'Formula 3 — Monaco',
       circuit: { name: 'Circuit de Monaco', city: 'Monte Carlo', country: 'Monaco', countryCode: 'MC', timezone: 'Europe/Monaco' },
       sessions: [
-        practice('2026-06-05T08:00:00Z'),     // Fri 10:00 CEST
-        quali('2026-06-05T13:00:00Z'),         // Fri 15:00 CEST
-        sprint('2026-06-06T12:00:00Z'),        // Sat 14:00 CEST
-        feature('2026-06-07T07:00:00Z'),       // Sun 09:00 CEST
+        practice('2026-06-05T07:00:00Z'),     // Fri 09:00 CEST
+        quali('2026-06-05T12:00:00Z'),         // Fri 14:00 CEST
+        sprint('2026-06-06T11:00:00Z'),        // Sat 13:00 CEST
+        feature('2026-06-07T06:00:00Z'),       // Sun 08:00 CEST
       ],
     },
     {
@@ -62,10 +62,10 @@ export const F3_2026: Championship = {
       name: 'Formula 3 — Spain',
       circuit: { name: 'Circuit de Barcelona-Catalunya', city: 'Montmeló', country: 'Spain', countryCode: 'ES', timezone: 'Europe/Madrid' },
       sessions: [
-        practice('2026-06-12T08:00:00Z'),     // Fri 10:00 CEST
-        quali('2026-06-12T13:00:00Z'),         // Fri 15:00 CEST
-        sprint('2026-06-13T12:00:00Z'),        // Sat 14:00 CEST
-        feature('2026-06-14T07:00:00Z'),       // Sun 09:00 CEST
+        practice('2026-06-12T07:00:00Z'),     // Fri 09:00 CEST
+        quali('2026-06-12T12:00:00Z'),         // Fri 14:00 CEST
+        sprint('2026-06-13T11:00:00Z'),        // Sat 13:00 CEST
+        feature('2026-06-14T06:00:00Z'),       // Sun 08:00 CEST
       ],
     },
     {
@@ -74,10 +74,10 @@ export const F3_2026: Championship = {
       name: 'Formula 3 — Austria',
       circuit: { name: 'Red Bull Ring', city: 'Spielberg', country: 'Austria', countryCode: 'AT', timezone: 'Europe/Vienna' },
       sessions: [
-        practice('2026-06-26T08:00:00Z'),     // Fri 10:00 CEST
-        quali('2026-06-26T13:00:00Z'),         // Fri 15:00 CEST
-        sprint('2026-06-27T12:00:00Z'),        // Sat 14:00 CEST
-        feature('2026-06-28T07:00:00Z'),       // Sun 09:00 CEST
+        practice('2026-06-26T07:00:00Z'),     // Fri 09:00 CEST
+        quali('2026-06-26T12:00:00Z'),         // Fri 14:00 CEST
+        sprint('2026-06-27T11:00:00Z'),        // Sat 13:00 CEST
+        feature('2026-06-28T06:00:00Z'),       // Sun 08:00 CEST
       ],
     },
     {
@@ -86,10 +86,10 @@ export const F3_2026: Championship = {
       name: 'Formula 3 — Great Britain',
       circuit: { name: 'Silverstone Circuit', city: 'Silverstone', country: 'Great Britain', countryCode: 'GB', timezone: 'Europe/London' },
       sessions: [
-        practice('2026-07-03T09:00:00Z'),     // Fri 10:00 BST
-        quali('2026-07-03T14:00:00Z'),         // Fri 15:00 BST
-        sprint('2026-07-04T13:00:00Z'),        // Sat 14:00 BST
-        feature('2026-07-05T08:00:00Z'),       // Sun 09:00 BST
+        practice('2026-07-03T08:00:00Z'),     // Fri 09:00 BST
+        quali('2026-07-03T13:00:00Z'),         // Fri 14:00 BST
+        sprint('2026-07-04T12:00:00Z'),        // Sat 13:00 BST
+        feature('2026-07-05T07:00:00Z'),       // Sun 08:00 BST
       ],
     },
     {
@@ -98,10 +98,10 @@ export const F3_2026: Championship = {
       name: 'Formula 3 — Belgium',
       circuit: { name: 'Circuit de Spa-Francorchamps', city: 'Stavelot', country: 'Belgium', countryCode: 'BE', timezone: 'Europe/Brussels' },
       sessions: [
-        practice('2026-07-17T08:00:00Z'),     // Fri 10:00 CEST
-        quali('2026-07-17T13:00:00Z'),         // Fri 15:00 CEST
-        sprint('2026-07-18T12:00:00Z'),        // Sat 14:00 CEST
-        feature('2026-07-19T07:00:00Z'),       // Sun 09:00 CEST
+        practice('2026-07-17T07:00:00Z'),     // Fri 09:00 CEST
+        quali('2026-07-17T12:00:00Z'),         // Fri 14:00 CEST
+        sprint('2026-07-18T11:00:00Z'),        // Sat 13:00 CEST
+        feature('2026-07-19T06:00:00Z'),       // Sun 08:00 CEST
       ],
     },
     {
@@ -110,10 +110,10 @@ export const F3_2026: Championship = {
       name: 'Formula 3 — Hungary',
       circuit: { name: 'Hungaroring', city: 'Budapest', country: 'Hungary', countryCode: 'HU', timezone: 'Europe/Budapest' },
       sessions: [
-        practice('2026-07-24T08:00:00Z'),     // Fri 10:00 CEST
-        quali('2026-07-24T13:00:00Z'),         // Fri 15:00 CEST
-        sprint('2026-07-25T12:00:00Z'),        // Sat 14:00 CEST
-        feature('2026-07-26T07:00:00Z'),       // Sun 09:00 CEST
+        practice('2026-07-24T07:00:00Z'),     // Fri 09:00 CEST
+        quali('2026-07-24T12:00:00Z'),         // Fri 14:00 CEST
+        sprint('2026-07-25T11:00:00Z'),        // Sat 13:00 CEST
+        feature('2026-07-26T06:00:00Z'),       // Sun 08:00 CEST
       ],
     },
     {
@@ -122,10 +122,10 @@ export const F3_2026: Championship = {
       name: 'Formula 3 — Italy',
       circuit: { name: 'Autodromo Nazionale Monza', city: 'Monza', country: 'Italy', countryCode: 'IT', timezone: 'Europe/Rome' },
       sessions: [
-        practice('2026-09-04T08:00:00Z'),     // Fri 10:00 CEST
-        quali('2026-09-04T13:00:00Z'),         // Fri 15:00 CEST
-        sprint('2026-09-05T12:00:00Z'),        // Sat 14:00 CEST
-        feature('2026-09-06T07:00:00Z'),       // Sun 09:00 CEST
+        practice('2026-09-04T07:00:00Z'),     // Fri 09:00 CEST
+        quali('2026-09-04T12:00:00Z'),         // Fri 14:00 CEST
+        sprint('2026-09-05T11:00:00Z'),        // Sat 13:00 CEST
+        feature('2026-09-06T06:00:00Z'),       // Sun 08:00 CEST
       ],
     },
     {
@@ -134,10 +134,10 @@ export const F3_2026: Championship = {
       name: 'Formula 3 — Spain/Madrid',
       circuit: { name: 'Madring', city: 'Madrid', country: 'Spain', countryCode: 'ES', timezone: 'Europe/Madrid' },
       sessions: [
-        practice('2026-09-11T08:00:00Z'),     // Fri 10:00 CEST
-        quali('2026-09-11T13:00:00Z'),         // Fri 15:00 CEST
-        sprint('2026-09-12T12:00:00Z'),        // Sat 14:00 CEST
-        feature('2026-09-13T07:00:00Z'),       // Sun 09:00 CEST
+        practice('2026-09-11T07:00:00Z'),     // Fri 09:00 CEST
+        quali('2026-09-11T12:00:00Z'),         // Fri 14:00 CEST
+        sprint('2026-09-12T11:00:00Z'),        // Sat 13:00 CEST
+        feature('2026-09-13T06:00:00Z'),       // Sun 08:00 CEST
       ],
     },
   ],
