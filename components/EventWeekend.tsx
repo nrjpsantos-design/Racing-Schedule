@@ -2,7 +2,7 @@
 
 import { useState, useId } from 'react'
 import { ChevronDown, ChevronUp, MapPin, Youtube } from 'lucide-react'
-import { format, isValid } from 'date-fns'
+import { format, isValid, differenceInDays, parseISO } from 'date-fns'
 import clsx from 'clsx'
 import type { EnrichedEvent } from '@/types'
 import { ChampionshipBadge } from './ChampionshipBadge'
@@ -38,17 +38,20 @@ export function EventWeekend({ event, region, defaultOpen = false, compact = fal
   const dateRange = startDate === endDate ? startDate : `${startDate} – ${endDate}`
 
   const nextS = event.nextSession
+  const daysAway = nextS ? differenceInDays(parseISO(nextS.start), new Date()) : 999
+  const isFarFuture = event.status === 'upcoming' && daysAway > 30
 
   return (
     <article
       className={clsx(
         'relative rounded-lg border transition-all overflow-hidden',
         event.status === 'live'
-          ? 'border-red-800 bg-gray-900/80'
+          ? 'border-red-700 bg-red-950/20'
           : event.status === 'completed'
           ? 'border-gray-800/50 bg-gray-900/15'
           : 'border-gray-800 bg-gray-900/50 hover:border-gray-700',
         compact && 'text-sm',
+        isFarFuture && 'opacity-60',
       )}
     >
       {/* Championship color left accent */}
@@ -67,8 +70,8 @@ export function EventWeekend({ event, region, defaultOpen = false, compact = fal
         {/* Status indicator */}
         <div className="mt-0.5 shrink-0 w-10">
           {event.status === 'live' ? (
-            <span className="flex items-center gap-1 text-red-400 text-[11px] font-bold">
-              <span className="w-2 h-2 rounded-full bg-red-500" /> LIVE
+            <span className="flex items-center gap-1.5 text-red-400 text-[11px] font-bold">
+              <span className="w-2 h-2 rounded-full bg-red-500 motion-safe:animate-pulse" /> LIVE
             </span>
           ) : event.status === 'completed' ? (
             <span className="text-gray-500 text-[11px] font-medium">DONE</span>
@@ -85,7 +88,7 @@ export function EventWeekend({ event, region, defaultOpen = false, compact = fal
             {event.status === 'upcoming' && nextS && (
               <span className="text-xs text-gray-500 hidden sm:flex items-center gap-1">
                 Next session in:
-                <CountdownTimer targetUtc={nextS.start} />
+                <CountdownTimer targetUtc={nextS.start} compact />
               </span>
             )}
             {hasYT && (

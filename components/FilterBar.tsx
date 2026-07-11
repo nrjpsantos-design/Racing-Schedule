@@ -11,12 +11,13 @@ interface Props {
   onChange: (filters: Filters) => void
 }
 
-function Chip({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
+function Chip({ active, onClick, children, size = 'md' }: { active: boolean; onClick: () => void; children: React.ReactNode; size?: 'sm' | 'md' }) {
   return (
     <button
       onClick={onClick}
       className={clsx(
-        'px-4 py-2 rounded-full text-xs font-medium transition-all whitespace-nowrap min-h-[44px] focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950',
+        'rounded-full font-medium transition-all whitespace-nowrap focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950',
+        size === 'sm' ? 'px-3 py-1.5 text-[11px] min-h-[36px]' : 'px-4 py-2 text-xs min-h-[44px]',
         active
           ? 'bg-white text-gray-950 shadow-sm'
           : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-gray-200',
@@ -63,19 +64,32 @@ export function FilterBar({ filters, championships, onChange }: Props) {
   const hasChampFilter = filters.championships.length > 0
 
   return (
-    <div className="space-y-3">
-      {/* Category row */}
-      <div className="flex gap-2 flex-wrap">
+    <div className="space-y-2">
+      {/* Unified filter row — category + period on one line */}
+      <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
         {CATEGORY_OPTS.map(opt => (
-          <Chip key={opt.id} active={filters.category === opt.id} onClick={() => selectCategory(opt.id)}>
+          <Chip key={opt.id} active={filters.category === opt.id} onClick={() => selectCategory(opt.id)} size="sm">
             {opt.label}
+          </Chip>
+        ))}
+
+        <span className="w-px h-4 bg-gray-700 mx-0.5" aria-hidden="true" />
+
+        {PERIOD_OPTS.map(opt => (
+          <Chip key={opt.value} active={filters.period === opt.value} onClick={() => onChange({ ...filters, period: opt.value })} size="sm">
+            {opt.value === 'live' ? (
+              <span className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-red-500 inline-block" />
+                Live
+              </span>
+            ) : opt.label}
           </Chip>
         ))}
       </div>
 
-      {/* Championship sub-filters — collapsible section (only when a category is selected) */}
+      {/* Championship sub-filters — collapsible section */}
       {filters.category !== 'all' && championInCategory.length > 1 && (
-        <div className="pl-2">
+        <div className="pl-1">
           <button
             onClick={() => setShowChampFilters(v => !v)}
             className={clsx(
@@ -114,20 +128,6 @@ export function FilterBar({ filters, championships, onChange }: Props) {
           )}
         </div>
       )}
-
-      {/* Period row */}
-      <div className="flex gap-2 flex-wrap items-center">
-        {PERIOD_OPTS.map(opt => (
-          <Chip key={opt.value} active={filters.period === opt.value} onClick={() => onChange({ ...filters, period: opt.value })}>
-            {opt.value === 'live' ? (
-              <span className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-red-500 inline-block" />
-                Live
-              </span>
-            ) : opt.label}
-          </Chip>
-        ))}
-      </div>
     </div>
   )
 }

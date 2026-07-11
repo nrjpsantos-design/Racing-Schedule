@@ -22,7 +22,7 @@ export function NextEventBanner({ event, region }: Props) {
   const targetSession = event.status === 'live' ? nextSession : (nextSession ?? raceSession)
 
   return (
-    <div className="relative overflow-hidden rounded-xl border-2 border-gray-700 bg-gray-900 p-4 sm:p-6">
+    <div className="relative overflow-hidden rounded-xl border-2 border-gray-700 bg-gray-900 p-3 sm:p-6">
       {/* Decorative top stripe — championship color */}
       <div
         className="absolute top-0 left-0 right-0 h-0.5"
@@ -30,12 +30,12 @@ export function NextEventBanner({ event, region }: Props) {
       />
 
       {/* Decorative corner markers — timing screen aesthetic */}
-      <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-gray-600 rounded-tl" />
-      <div className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-gray-600 rounded-tr" />
-      <div className="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-gray-600 rounded-bl" />
-      <div className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-gray-600 rounded-br" />
+      <div className="hidden sm:block absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-gray-600 rounded-tl" />
+      <div className="hidden sm:block absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-gray-600 rounded-tr" />
+      <div className="hidden sm:block absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-gray-600 rounded-bl" />
+      <div className="hidden sm:block absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-gray-600 rounded-br" />
 
-      <div className="flex items-center gap-2 mb-3 text-[10px] font-semibold text-gray-400 uppercase tracking-widest">
+      <div className="flex items-center gap-2 mb-2 sm:mb-3 text-[10px] font-semibold text-gray-400 uppercase tracking-widest">
         {event.status === 'live' ? (
           <span className="flex items-center gap-1.5 text-red-400">
             <span className="w-2 h-2 rounded-full bg-red-500 motion-safe:animate-pulse" />
@@ -53,26 +53,26 @@ export function NextEventBanner({ event, region }: Props) {
         <span className="text-gray-500">Round {event.round}</span>
       </div>
 
-      <div className="flex flex-col sm:flex-row sm:items-start gap-5">
+      <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5">
         {/* Left: event info */}
         <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 mb-1.5">
+          <div className="flex items-center gap-2 mb-1">
             <ChampionshipBadge championship={event.championship} />
             <span className="text-xl" role="img" aria-label={event.circuit.country}>
               {getFlagEmoji(event.circuit.countryCode)}
             </span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold text-white leading-tight font-heading">
+          <h2 className="text-lg sm:text-2xl font-bold text-white leading-tight font-heading">
             {event.name}
           </h2>
-          <div className="flex items-center gap-1 mt-1 text-sm text-gray-400">
-            <MapPin className="w-3.5 h-3.5 shrink-0 text-gray-500" />
-            <span>{event.circuit.name} · {event.circuit.city}, {event.circuit.country}</span>
+          <div className="flex items-center gap-1 mt-0.5 sm:mt-1 text-xs sm:text-sm text-gray-400">
+            <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0 text-gray-500" />
+            <span className="truncate">{event.circuit.name} · {event.circuit.city}, {event.circuit.country}</span>
           </div>
 
           {/* Next session info */}
           {targetSession && (
-            <div className="mt-2.5 flex items-center gap-2 text-sm">
+            <div className="mt-1.5 sm:mt-2.5 flex items-center gap-2 text-sm">
               <span className="text-gray-500">
                 {event.status === 'live'
                   ? 'Next:'
@@ -89,8 +89,8 @@ export function NextEventBanner({ event, region }: Props) {
 
         {/* Right: hero countdown */}
         {targetSession && event.status !== 'live' && (
-          <div className="shrink-0 text-right bg-gray-950/60 rounded-lg px-4 py-3 border border-gray-800">
-            <p className="text-[10px] text-gray-500 uppercase tracking-widest mb-1.5">
+          <div className="shrink-0 sm:text-right bg-gray-950/60 rounded-lg px-3 sm:px-4 py-2 sm:py-3 border border-gray-800">
+            <p className="text-[10px] text-gray-500 uppercase tracking-widest mb-1 sm:mb-1.5">
               {event.nextSession?.type === 'race' ? 'Race starts in' : 'Next session in'}
             </p>
             <CountdownTimer targetUtc={targetSession.start} />
@@ -99,7 +99,7 @@ export function NextEventBanner({ event, region }: Props) {
       </div>
 
       {/* Broadcasts footer */}
-      <div className="mt-5 pt-3.5 border-t border-gray-800 flex flex-col sm:flex-row sm:items-center gap-2">
+      <div className="mt-3 sm:mt-5 pt-2.5 sm:pt-3.5 border-t border-gray-800 flex flex-col sm:flex-row sm:items-center gap-2">
         <span className="text-[10px] text-gray-500 uppercase tracking-widest shrink-0">Where to watch:</span>
         <div className="flex-1">
           <BroadcastInfo broadcasts={broadcasts} compact />
@@ -109,7 +109,7 @@ export function NextEventBanner({ event, region }: Props) {
             href={ytUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-red-700 hover:bg-red-600 text-white text-xs font-bold rounded-lg transition-all hover:scale-105 active:scale-95 min-h-[44px] timing-glow"
+            className="inline-flex items-center gap-1.5 px-4 py-2 sm:py-2.5 bg-red-700 hover:bg-red-600 text-white text-xs font-bold rounded-lg transition-all hover:scale-105 active:scale-95 min-h-[44px] timing-glow"
           >
             <Youtube className="w-4 h-4" />
             Watch Free on YouTube

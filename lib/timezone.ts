@@ -78,6 +78,14 @@ export function getTimezoneAbbr(timezone: string): string {
   }
 }
 
+export function getTimezoneLabel(timezone: string): string {
+  const match = COMMON_TIMEZONES.find(tz => tz.value === timezone)
+  if (match) return match.label
+  const abbr = getTimezoneAbbr(timezone)
+  const city = timezone.split('/').pop()?.replace(/_/g, ' ') ?? timezone
+  return `${city} (${abbr})`
+}
+
 export function getLocalDateFromUTC(utcDateStr: string, timezone: string): Date {
   return toZonedTime(parseISO(utcDateStr), timezone)
 }

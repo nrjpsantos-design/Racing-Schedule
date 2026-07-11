@@ -83,12 +83,27 @@
     box-shadow: 0 0 20px var(--color-live-glow);
   }
 
+  .live-glow-strong {
+    animation: live-glow-pulse 2s ease-in-out infinite;
+  }
+  @keyframes live-glow-pulse {
+    0%, 100% {
+      box-shadow: 0 0 15px rgba(239, 68, 68, 0.1), 0 0 30px rgba(239, 68, 68, 0.05);
+      border-color: rgba(185, 28, 28, 0.7);
+    }
+    50% {
+      box-shadow: 0 0 25px rgba(239, 68, 68, 0.2), 0 0 50px rgba(239, 68, 68, 0.08);
+      border-color: rgba(239, 68, 68, 0.8);
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .live-pulse,
     .motion-safe\:animate-pulse,
     .animate-fade-in,
     .animate-slide-in,
-    .animate-count-pulse {
+    .animate-count-pulse,
+    .live-glow-strong {
       animation: none !important;
     }
   }

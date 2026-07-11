@@ -1,7 +1,7 @@
 'use client'
 
 import { Globe } from 'lucide-react'
-import { COMMON_TIMEZONES, getTimezoneAbbr } from '@/lib/timezone'
+import { COMMON_TIMEZONES } from '@/lib/timezone'
 
 interface Props {
   value: string
@@ -9,8 +9,6 @@ interface Props {
 }
 
 export function TimezoneSelector({ value, onChange }: Props) {
-  const abbr = getTimezoneAbbr(value)
-
   return (
     <div className="flex items-center gap-1.5">
       <Globe className="w-3.5 h-3.5 text-gray-400 shrink-0" aria-hidden="true" />
@@ -26,7 +24,6 @@ export function TimezoneSelector({ value, onChange }: Props) {
           </option>
         ))}
       </select>
-      <span className="text-xs text-gray-500 hidden sm:inline">({abbr})</span>
     </div>
   )
 }
