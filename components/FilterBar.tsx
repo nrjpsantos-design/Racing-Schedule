@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import clsx from 'clsx'
 import type { Championship, Filters, PeriodFilter, VehicleCategory } from '@/types'
 import { ChevronDown, ChevronRight } from 'lucide-react'
@@ -9,23 +9,7 @@ interface Props {
   filters: Filters
   championships: Championship[]
   onChange: (filters: Filters) => void
-}
-
-function Chip({ active, onClick, children, size = 'md' }: { active: boolean; onClick: () => void; children: React.ReactNode; size?: 'sm' | 'md' }) {
-  return (
-    <button
-      onClick={onClick}
-      className={clsx(
-        'rounded-full font-medium transition-all whitespace-nowrap focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950',
-        size === 'sm' ? 'px-3 py-1.5 text-[11px] min-h-[36px]' : 'px-4 py-2 text-xs min-h-[44px]',
-        active
-          ? 'bg-white text-gray-950 shadow-sm'
-          : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-gray-200',
-      )}
-    >
-      {children}
-    </button>
-  )
+  showPeriod?: boolean
 }
 
 const CATEGORY_OPTS: { id: 'all' | VehicleCategory; label: string }[] = [
@@ -46,8 +30,9 @@ const PERIOD_OPTS: { label: string; value: PeriodFilter }[] = [
   { label: 'All dates',   value: 'all' },
 ]
 
-export function FilterBar({ filters, championships, onChange }: Props) {
+export function FilterBar({ filters, championships, onChange, showPeriod = true }: Props) {
   const [showChampFilters, setShowChampFilters] = useState(false)
+  const scrollRef = useRef<HTMLDivElement>(null)
 
   const selectCategory = (cat: 'all' | VehicleCategory) => {
     setShowChampFilters(false)
@@ -63,29 +48,80 @@ export function FilterBar({ filters, championships, onChange }: Props) {
   const championInCategory = championships.filter(c => c.category === filters.category)
   const hasChampFilter = filters.championships.length > 0
 
+  const getCategoryCount = (cat: 'all' | VehicleCategory) => {
+    if (cat === 'all') return championships.length
+    return championships.filter(c => c.category === cat).length
+  }
+
   return (
-    <div className="space-y-2">
-      {/* Unified filter row — category + period on one line */}
-      <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
-        {CATEGORY_OPTS.map(opt => (
-          <Chip key={opt.id} active={filters.category === opt.id} onClick={() => selectCategory(opt.id)} size="sm">
-            {opt.label}
-          </Chip>
-        ))}
+    <div className="space-y-3">
+      {/* Category navigation — primary axis */}
+      <nav aria-label="Racing categories">
+        <div
+          ref={scrollRef}
+          className="flex gap-1 overflow-x-auto scrollbar-hide -mx-1 px-1 pb-px"
+          role="tablist"
+        >
+          {CATEGORY_OPTS.map(opt => {
+            const isActive = filters.category === opt.id
+            const count = getCategoryCount(opt.id)
+            return (
+              <button
+                key={opt.id}
+                role="tab"
+                aria-selected={isActive}
+                onClick={() => selectCategory(opt.id)}
+                className={clsx(
+                  'relative flex items-center gap-2 px-4 py-2.5 text-sm font-medium whitespace-nowrap transition-colors min-h-[44px]',
+                  'focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950 focus-visible:rounded',
+                  isActive
+                    ? 'text-white'
+                    : 'text-gray-500 hover:text-gray-300',
+                )}
+              >
+                {opt.label}
+                <span className={clsx(
+                  'text-[10px] tabular-nums font-normal',
+                  isActive ? 'text-gray-400' : 'text-gray-600',
+                )}>
+                  {count}
+                </span>
+                {/* Active indicator bar */}
+                {isActive && (
+                  <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-white rounded-full" />
+                )}
+              </button>
+            )
+          })}
+        </div>
+        <div className="h-px bg-gray-800" />
+      </nav>
 
-        <span className="w-px h-4 bg-gray-700 mx-0.5" aria-hidden="true" />
-
+      {/* Period filters — secondary controls */}
+      {showPeriod && (
+      <div className="flex items-center gap-1.5 flex-wrap">
         {PERIOD_OPTS.map(opt => (
-          <Chip key={opt.value} active={filters.period === opt.value} onClick={() => onChange({ ...filters, period: opt.value })} size="sm">
+          <button
+            key={opt.value}
+            onClick={() => onChange({ ...filters, period: opt.value })}
+            className={clsx(
+              'rounded-full font-medium transition-all whitespace-nowrap px-3 py-1 text-[11px] min-h-[32px]',
+              'focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950',
+              filters.period === opt.value
+                ? 'bg-white text-gray-950 shadow-sm'
+                : 'bg-gray-800/60 text-gray-400 hover:bg-gray-700 hover:text-gray-200',
+            )}
+          >
             {opt.value === 'live' ? (
               <span className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-red-500 inline-block" />
                 Live
               </span>
             ) : opt.label}
-          </Chip>
+          </button>
         ))}
       </div>
+      )}
 
       {/* Championship sub-filters — collapsible section */}
       {filters.category !== 'all' && championInCategory.length > 1 && (

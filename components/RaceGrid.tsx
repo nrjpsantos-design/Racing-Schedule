@@ -12,7 +12,8 @@ import { EventWeekend } from './EventWeekend'
 import { CountdownTimer } from './CountdownTimer'
 import { TimezoneSelector } from './TimezoneSelector'
 import { RegionSelector } from './RegionSelector'
-import { RefreshCw, ChevronDown, ChevronRight, List, Star, Keyboard } from 'lucide-react'
+import { CalendarView } from './CalendarView'
+import { RefreshCw, ChevronDown, ChevronRight, List, Star, Keyboard, CalendarDays } from 'lucide-react'
 import clsx from 'clsx'
 
 interface Props {
@@ -28,12 +29,15 @@ const DEFAULT_FILTERS: Filters = {
 
 const STORAGE_KEY_FAVORITES = 'racegrid_favorite_champs'
 
-function filtersToParams(f: Filters): Record<string, string> {
+type ViewMode = 'list' | 'calendar'
+
+function filtersToParams(f: Filters, view: ViewMode = 'list'): Record<string, string> {
   const p: Record<string, string> = {}
   if (f.category !== 'all') p.cat = f.category
   if (f.championships.length) p.champ = f.championships.join(',')
   if (f.period !== 'upcoming') p.period = f.period
   if (f.region !== 'GLOBAL') p.region = f.region
+  if (view !== 'list') p.view = view
   return p
 }
 
@@ -90,6 +94,7 @@ export function RaceGrid({ championships }: Props) {
   const [timezone, setTimezone] = useState('UTC')
   const [region, setRegion] = useState('GLOBAL')
   const [filters, setFilters] = useState<Filters>(DEFAULT_FILTERS)
+  const [view, setView] = useState<ViewMode>('list')
   const [hydrated, setHydrated] = useState(false)
   const [expandedChamps, setExpandedChamps] = useState<Set<string>>(new Set())
   const [favorites, setFavorites] = useState<Set<string>>(new Set())
@@ -122,15 +127,26 @@ export function RaceGrid({ championships }: Props) {
     setRegion(reg)
     const parsed = paramsToFilters(searchParams, reg, championships)
     setFilters(parsed)
+    if (searchParams.get('view') === 'calendar') setView('calendar')
     setHydrated(true)
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Keep view in a ref so filter changes preserve the view param without re-creating the callback
+  const viewRef = useRef(view)
+  useEffect(() => { viewRef.current = view })
 
   // Sync filters to URL
   const handleFiltersChange = useCallback((next: Filters) => {
     setFilters(next)
-    const params = new URLSearchParams(filtersToParams(next))
+    const params = new URLSearchParams(filtersToParams(next, viewRef.current))
     router.replace(`${pathname}?${params.toString()}`, { scroll: false })
   }, [router, pathname])
+
+  const handleViewChange = useCallback((next: ViewMode) => {
+    setView(next)
+    const params = new URLSearchParams(filtersToParams(filters, next))
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false })
+  }, [filters, router, pathname])
 
   const handleTimezoneChange = useCallback((tz: string) => {
     setTimezone(tz)
@@ -151,6 +167,12 @@ export function RaceGrid({ championships }: Props) {
   const filteredEvents = useMemo(
     () => applyFilters(allEvents, filters, now, timezone),
     [allEvents, filters, now, timezone]
+  )
+
+  // Calendar navigates time itself, so it ignores the period filter
+  const calendarEvents = useMemo(
+    () => view === 'calendar' ? applyFilters(allEvents, { ...filters, period: 'all' }, now, timezone) : [],
+    [allEvents, filters, now, timezone, view]
   )
 
   // Group filtered events by championship
@@ -354,21 +376,51 @@ export function RaceGrid({ championships }: Props) {
           filters={filters}
           championships={championships}
           onChange={handleFiltersChange}
+          showPeriod={view === 'list'}
         />
       </div>
 
       {/* Event count + actions */}
       <div className="flex items-center justify-between animate-fade-in" style={{ animationDelay: '150ms' }}>
         <p className="text-xs text-gray-500">
-          {totalFilteredEvents === 0
+          {view === 'calendar'
+            ? `${calendarEvents.length} event${calendarEvents.length === 1 ? '' : 's'} this season`
+            : totalFilteredEvents === 0
             ? 'No events match these filters'
             : `${totalFilteredEvents} event${totalFilteredEvents === 1 ? '' : 's'}`}
-          {isActiveFilter && (
+          {view === 'list' && isActiveFilter && (
             <span className="text-gray-700"> · filtered</span>
           )}
         </p>
         <div className="flex items-center gap-3">
-          {groupedEvents.length > 1 && (
+          {/* View toggle — list | calendar */}
+          <div className="flex rounded-md border border-gray-800 overflow-hidden" role="group" aria-label="Display format">
+            <button
+              onClick={() => handleViewChange('list')}
+              aria-pressed={view === 'list'}
+              title="List view"
+              className={clsx(
+                'flex items-center gap-1.5 px-2.5 py-1.5 text-[11px] font-medium transition-colors focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-inset',
+                view === 'list' ? 'bg-gray-800 text-white' : 'text-gray-500 hover:text-gray-300',
+              )}
+            >
+              <List className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">List</span>
+            </button>
+            <button
+              onClick={() => handleViewChange('calendar')}
+              aria-pressed={view === 'calendar'}
+              title="Calendar view"
+              className={clsx(
+                'flex items-center gap-1.5 px-2.5 py-1.5 text-[11px] font-medium transition-colors focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-inset',
+                view === 'calendar' ? 'bg-gray-800 text-white' : 'text-gray-500 hover:text-gray-300',
+              )}
+            >
+              <CalendarDays className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Calendar</span>
+            </button>
+          </div>
+          {view === 'list' && groupedEvents.length > 1 && (
             <button
               onClick={() => {
                 if (expandedChamps.size === groupedEvents.length) {
@@ -395,8 +447,15 @@ export function RaceGrid({ championships }: Props) {
         </div>
       </div>
 
+      {/* Calendar view */}
+      {view === 'calendar' && (
+        <div className="animate-fade-in" style={{ animationDelay: '200ms' }}>
+          <CalendarView events={calendarEvents} timezone={timezone} now={now} />
+        </div>
+      )}
+
       {/* Grouped event list */}
-      {totalFilteredEvents === 0 ? (
+      {view === 'list' && (totalFilteredEvents === 0 ? (
         <div className="rounded-lg border border-gray-800 p-8 text-center animate-fade-in" style={{ animationDelay: '200ms' }}>
           {(() => {
             let message: string
@@ -445,6 +504,10 @@ export function RaceGrid({ championships }: Props) {
               formula: 'Formula', endurance: 'Endurance', touring: 'Touring', moto: 'Moto', rally: 'Rally',
             }
 
+            const categoryChampCount = showCategoryHeader
+              ? groupedEvents.filter(g => g.championship.category === group.championship.category).length
+              : 0
+
             return (
               <div key={group.championship.id}>
                 {showFavoriteDivider && (
@@ -455,11 +518,15 @@ export function RaceGrid({ championships }: Props) {
                   </div>
                 )}
                 {showCategoryHeader && !showFavoriteDivider && (
-                  <div className="flex items-center gap-3 pt-3 pb-1 first:pt-0">
-                    <span className="text-[10px] text-gray-600 uppercase tracking-widest font-medium">
+                  <div className={clsx(
+                    'sticky top-0 z-10 flex items-center gap-3 py-2 backdrop-blur-sm bg-gray-950/80',
+                    i > 0 && 'mt-4',
+                  )}>
+                    <span className="text-xs text-gray-400 uppercase tracking-widest font-semibold font-heading">
                       {CATEGORY_LABELS[group.championship.category] ?? group.championship.category}
                     </span>
-                    <div className="flex-1 h-px bg-gray-800/60" />
+                    <span className="text-[10px] text-gray-600 tabular-nums">{categoryChampCount}</span>
+                    <div className="flex-1 h-px bg-gray-800" />
                   </div>
                 )}
                 <section
@@ -572,7 +639,7 @@ export function RaceGrid({ championships }: Props) {
             )
           })}
         </div>
-      )}
+      ))}
 
       {/* Footer */}
       <footer className="pt-4 border-t border-gray-900 text-center text-xs text-gray-600">
